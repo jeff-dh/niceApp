@@ -4,7 +4,7 @@
 
     python -m venv .env
     source .env/bin/activate
-    pip install buildozer
+    pip install buildozer,setuptools
 
     git clone https://github.com/jeff-dh/nicegui.git
     cd nicegui
