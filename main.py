@@ -11,7 +11,7 @@ def monkey_patch_nicegui():
 
 monkey_patch_nicegui()
 
-from nicegui import ui, app
+from nicegui import ui
 
 @ui.page("/")
 def index():
