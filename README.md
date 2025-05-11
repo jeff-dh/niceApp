@@ -2,16 +2,10 @@
 
 ###### Build Apk
 
-    python -m venv .env
-    source .env/bin/activate
-    pip install buildozer,setuptools
-
-    git clone https://github.com/jeff-dh/nicegui.git
-    cd nicegui
-    git checkout android
-    cd ..
-
-    git clone https://github.com/jeff-dh/niceApp.git
-    cd niceApp
-    ln -s ../nicegui/nicegui nicegui
+    python -m venv .venv
+    source .venv/bin/activate
+    pip install buildozer aio_process_pool setuptools cython==3.0.12
     buildozer android debug
+    buildozer serve
+
+    browse to <you-ip>:8000 with your phone and install the app

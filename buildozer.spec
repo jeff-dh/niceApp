@@ -13,20 +13,14 @@ package.domain = org.test
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-# source.include_exts = py,png,jpg,kv,atlas,svg
-
-# include all files (at least svg & html is required, probably more....)
-# this is neccessary since we need the patched nicegui library from ./nicegui
-# since we still need nicegui as requirement (otherwise we're missing 'package
-# metadata') the apk file is huge for now o_O
-source.include_exts =
+source.include_exts = py,png,jpg,kv,atlas,svg
 
 # (str) Application versioning (method 1)
 version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,urllib3,httpcore,bidict,Jinja2,vbuild,simple-websocket,aiohttp,yarl,frozenlist,httpx,uvicorn,sniffio,requests,wsproto,propcache,python-socketio,charset-normalizer,idna,anyio,annotated-types,certifi,orjson,itsdangerous,pydantic_core,ifaddr,python-engineio,multidict,click,h11,MarkupSafe,starlette,aiofiles,aiosignal,attrs,fastapi,Pygments,markdown2,python-multipart,pscript,typing_extensions,docutils,pydantic,typing-inspection,watchfiles,aiohappyeyeballs,wait_for2,nicegui
+requirements = python3,urllib3,httpcore,bidict,Jinja2,vbuild,simple-websocket,aiohttp,yarl,frozenlist,httpx,uvicorn,sniffio,requests,wsproto,propcache,python-socketio,charset-normalizer,idna,anyio,annotated-types,certifi,orjson,itsdangerous,pydantic_core,ifaddr,python-engineio,multidict,click,h11,MarkupSafe,starlette,aiofiles,aiosignal,attrs,fastapi,Pygments,markdown2,python-multipart,pscript,typing_extensions,docutils,pydantic,typing-inspection,watchfiles,aiohappyeyeballs,wait_for2,nicegui,aio_process_pool
 
 # (list) Supported orientations
 # Valid options are: landscape, portrait, portrait-reverse or landscape-reverse

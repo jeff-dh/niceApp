@@ -1,21 +1,25 @@
-from nicegui import ui, app
+def monkey_patch_nicegui():
+    import nicegui.run, aio_process_pool
+    nicegui.run.ProcessPoolExecutor = aio_process_pool.Executor
 
-def is_android():
-    import platform
-    return "android" in platform.uname().release
+    def patched_shutdown():
+        assert nicegui.run.process_pool
+        nicegui.run.process_pool.shutdown(wait=True, cancel_futures=True)
+        nicegui.run.thread_pool.shutdown(wait=False, cancel_futures=True)
+
+    nicegui.run.tear_down = patched_shutdown
+
+monkey_patch_nicegui()
+
+from nicegui import ui, app
 
 @ui.page("/")
 def index():
-    if is_android():
-        ui.label("Hello nice android world")
-
-    storage = app.storage.user
-    storage["foobar"] = storage.get("foobar", 0)
+    ui.label("Hello World")
 
     def callback():
-        storage["foobar"] += 1
-        ui.label(f"yeah{'.'*storage['foobar']}")
+        ui.label(f"yeah")
 
     ui.button("Really?", on_click=callback)
 
-ui.run(host='localhost', reload=False, show=False, storage_secret="foobar")
+ui.run(reload=False, show=False)
